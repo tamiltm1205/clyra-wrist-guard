@@ -2,6 +2,7 @@ import { ArrowLeft, Bluetooth, Thermometer, Droplets, Users, Bell, Shield, Chevr
 import { useNavigate } from "react-router-dom";
 import { Switch } from "@/components/ui/switch";
 import { BottomNav } from "@/components/BottomNav";
+import { ProfileCard } from "@/components/ProfileCard";
 import { useState } from "react";
 
 const Settings = () => {
@@ -77,6 +78,13 @@ const Settings = () => {
 
       {/* Main content */}
       <main className="relative z-10 px-6 space-y-6">
+        {/* Profile Section */}
+        <div className="opacity-0 animate-fade-in">
+          <h3 className="font-display text-sm uppercase tracking-wider text-muted-foreground mb-3">
+            Account
+          </h3>
+          <ProfileCard />
+        </div>
         {settingsGroups.map((group, groupIndex) => (
           <div
             key={group.title}
