@@ -35,7 +35,7 @@ export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingL
           animate && "animate-float"
         )}
       >
-        <span className="gradient-text neon-text-purple">CLYRA</span>
+        <span className="gradient-text neon-text-purple">MEZZOI</span>
       </h1>
       
       {/* Decorative ring */}

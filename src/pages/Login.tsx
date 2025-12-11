@@ -42,7 +42,7 @@ const Login = () => {
         </h2>
         <p className="text-muted-foreground text-sm mb-8 opacity-0 animate-fade-in delay-100">
           {isSignUp
-            ? "Start your health journey with CLYRA"
+            ? "Start your health journey with MEZZOI"
             : "Sign in to access your health dashboard"}
         </p>
 
