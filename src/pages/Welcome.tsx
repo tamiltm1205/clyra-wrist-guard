@@ -8,24 +8,6 @@ const Welcome = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6">
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-electric/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-teal-accent/20 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-purple-electric/10 via-transparent to-transparent rounded-full" />
-      </div>
-
-      {/* Animated grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `
-            linear-gradient(hsl(270 91% 65% / 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(270 91% 65% / 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-        }}
-      />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-md">

@@ -44,11 +44,6 @@ const Safety = () => {
 
   return (
     <div className="min-h-screen pb-24 relative">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-destructive/10 rounded-full blur-[100px]" />
-      </div>
-
       {/* Header */}
       <header className="relative z-10 px-6 pt-8 pb-6">
         <button

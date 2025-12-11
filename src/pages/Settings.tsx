@@ -58,11 +58,6 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen pb-24 relative">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-40 -left-20 w-60 h-60 bg-purple-electric/10 rounded-full blur-[80px]" />
-      </div>
-
       {/* Header */}
       <header className="relative z-10 px-6 pt-8 pb-6">
         <button

@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -90,17 +90,29 @@
 }
 
 @layer base {
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, hsl(222 47% 6%), hsl(222 47% 8%));
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
+  }
+
+  #root {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
   }
 }
 

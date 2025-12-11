@@ -20,12 +20,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden px-6 py-8">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 -right-32 w-80 h-80 bg-purple-electric/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 -left-32 w-80 h-80 bg-teal-accent/20 rounded-full blur-[100px]" />
-      </div>
-
       {/* Back button */}
       <button
         onClick={() => navigate("/")}

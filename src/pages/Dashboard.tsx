@@ -17,12 +17,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen pb-24 relative">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -right-20 w-60 h-60 bg-purple-electric/15 rounded-full blur-[80px]" />
-        <div className="absolute bottom-40 -left-20 w-60 h-60 bg-teal-accent/15 rounded-full blur-[80px]" />
-      </div>
-
       {/* Header */}
       <header className="relative z-10 px-6 pt-8 pb-6">
         <div className="flex items-center justify-between mb-6">
