@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Squares from "./components/Squares";
+import Aurora from "./components/Aurora";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -19,12 +19,11 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <div className="fixed inset-0 z-0">
-        <Squares
+        <Aurora
+          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+          amplitude={1.0}
+          blend={0.5}
           speed={0.5}
-          squareSize={40}
-          direction="diagonal"
-          borderColor="rgba(82, 39, 255, 0.2)"
-          hoverFillColor="rgba(82, 39, 255, 0.1)"
         />
       </div>
       <div className="relative z-10">
