@@ -29,10 +29,10 @@ export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingL
       
       {/* Main logo image */}
       <img 
-        src="/mezzoi final logo .jpg"
+        src="/mezzoi_logo_-removebg-preview.png"
         alt="Mezzoi Logo"
         className={cn(
-          "relative z-10 object-cover rounded-full aspect-square",
+          "relative z-10 object-contain rounded-full aspect-square",
           sizeClasses[size],
           animate && "animate-float"
         )}
