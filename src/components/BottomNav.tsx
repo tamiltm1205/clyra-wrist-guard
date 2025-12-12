@@ -1,11 +1,10 @@
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
-import { Home, Activity, AlertTriangle, Bell, Settings } from "lucide-react";
+import { Home, Activity, Bell, Settings } from "lucide-react";
 
 const navItems = [
   { to: "/dashboard", icon: Home, label: "Home" },
   { to: "/health", icon: Activity, label: "Health" },
-  { to: "/safety", icon: AlertTriangle, label: "Safety" },
   { to: "/notifications", icon: Bell, label: "Alerts" },
   { to: "/settings", icon: Settings, label: "Settings" },
 ];

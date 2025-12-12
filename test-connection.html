@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wristband Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background: #22c55e; }
+        .disconnected { background: #ef4444; }
+        .alert {
+            background: #3b82f6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #60a5fa;
+        }
+        button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #7c3aed; }
+        #messages {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #374151;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚨 Wristband System Test</h1>
+    
+    <div id="status" class="status disconnected">
+        WebSocket: Disconnected
+    </div>
+    
+    <div>
+        <h3>Test Controls:</h3>
+        <button onclick="testConnection()">Test Connection</button>
+        <button onclick="clearMessages()">Clear Messages</button>
+    </div>
+    
+    <div id="messages"></div>
+    
+    <div class="alert">
+        <h3>📋 How to Test:</h3>
+        <ol>
+            <li>Start the backend server: <code>cd backend && npm start</code></li>
+            <li>Open the admin dashboard: <code>http://localhost:5173/admin</code></li>
+            <li>Open the user dashboard: <code>http://localhost:5173/dashboard</code></li>
+            <li>Login to admin with: username=<strong>admin</strong>, password=<strong>admin123</strong></li>
+            <li>Trigger alerts from admin dashboard and see them appear on user dashboard</li>
+        </ol>
+    </div>
+
+    <script>
+        let ws = null;
+        const statusDiv = document.getElementById('status');
+        const messagesDiv = document.getElementById('messages');
+
+        function connect() {
+            try {
+                ws = new WebSocket('ws://localhost:3002');
+                
+                ws.onopen = () => {
+                    statusDiv.textContent = 'WebSocket: Connected ✅';
+                    statusDiv.className = 'status connected';
+                    addMessage('Connected to WebSocket server', 'success');
+                };
+
+                ws.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    addMessage(`Alert received: ${data.type} - ${data.message}`, 'alert');
+                };
+
+                ws.onclose = () => {
+                    statusDiv.textContent = 'WebSocket: Disconnected ❌';
+                    statusDiv.className = 'status disconnected';
+                    addMessage('Disconnected from WebSocket server', 'error');
+                };
+
+                ws.onerror = () => {
+                    addMessage('WebSocket connection error', 'error');
+                };
+            } catch (error) {
+                addMessage('Failed to connect: ' + error.message, 'error');
+            }
+        }
+
+        function addMessage(message, type) {
+            const div = document.createElement('div');
+            div.style.padding = '5px';
+            div.style.margin = '2px 0';
+            div.style.borderRadius = '3px';
+            
+            switch(type) {
+                case 'success':
+                    div.style.background = '#22c55e';
+                    break;
+                case 'error':
+                    div.style.background = '#ef4444';
+                    break;
+                case 'alert':
+                    div.style.background = '#f59e0b';
+                    break;
+                default:
+                    div.style.background = '#6b7280';
+            }
+            
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            messagesDiv.appendChild(div);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function testConnection() {
+            fetch('http://localhost:3001/health')
+                .then(response => response.json())
+                .then(data => {
+                    addMessage(`Backend server is running. Connected users: ${data.connectedUsers}`, 'success');
+                })
+                .catch(error => {
+                    addMessage('Backend server is not running', 'error');
+                });
+        }
+
+        function clearMessages() {
+            messagesDiv.innerHTML = '';
+        }
+
+        // Auto-connect on page load
+        connect();
+    </script>
+</body>
+</html>
