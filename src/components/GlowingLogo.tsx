@@ -8,10 +8,10 @@ interface GlowingLogoProps {
 
 export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingLogoProps) => {
   const sizeClasses = {
-    sm: "h-24 w-auto",
-    md: "h-32 w-auto",
-    lg: "h-44 w-auto",
-    xl: "h-56 w-auto",
+    sm: "h-24 w-24",
+    md: "h-32 w-32",
+    lg: "h-44 w-44",
+    xl: "h-56 w-56",
   };
 
   return (
@@ -32,7 +32,7 @@ export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingL
         src="/mezzoi final logo .jpg"
         alt="Mezzoi Logo"
         className={cn(
-          "relative z-10 object-contain",
+          "relative z-10 object-cover rounded-full aspect-square",
           sizeClasses[size],
           animate && "animate-float"
         )}
