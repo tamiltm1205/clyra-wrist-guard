@@ -8,24 +8,15 @@ interface GlowingLogoProps {
 
 export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingLogoProps) => {
   const sizeClasses = {
-    sm: "h-24 w-24",
-    md: "h-32 w-32",
-    lg: "h-44 w-44",
-    xl: "h-56 w-56",
+    sm: "h-32 w-32",
+    md: "h-40 w-40",
+    lg: "h-56 w-56",
+    xl: "h-72 w-72",
   };
 
   return (
     <div className={cn("relative inline-flex flex-col items-center", className)}>
-      {/* Glow effect behind */}
-      <div 
-        className={cn(
-          "absolute inset-0 blur-3xl opacity-60",
-          animate && "animate-glow-pulse"
-        )}
-        style={{
-          background: "linear-gradient(135deg, hsl(270 91% 65% / 0.5) 0%, hsl(174 72% 56% / 0.5) 100%)",
-        }}
-      />
+
       
       {/* Main logo image */}
       <img 
@@ -37,7 +28,7 @@ export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingL
           animate && "animate-float"
         )}
         style={{
-          filter: "drop-shadow(0 0 10px hsl(270 91% 65% / 0.8)) drop-shadow(0 0 20px hsl(270 91% 65% / 0.5))",
+          filter: "brightness(0) invert(1) drop-shadow(0 0 10px hsl(270 91% 65% / 0.8)) drop-shadow(0 0 20px hsl(270 91% 65% / 0.5))",
         }}
       />
       

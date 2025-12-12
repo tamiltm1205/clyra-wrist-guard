@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GlowingLogo } from "@/components/GlowingLogo";
+import StarBorder from "@/components/StarBorder";
 import { Watch, ChevronRight } from "lucide-react";
 
 const Welcome = () => {
@@ -36,24 +37,28 @@ const Welcome = () => {
 
         {/* CTA Buttons */}
         <div className="w-full space-y-4 opacity-0 animate-fade-in-up delay-500">
-          <Button
-            variant="glow"
-            size="xl"
-            className="w-full"
-            onClick={() => navigate("/login")}
+          <StarBorder 
+            as="button" 
+            className="w-full" 
+            color="cyan" 
+            speed="5s"
+            onClick={() => navigate("/dashboard")}
           >
-            Get Started
-            <ChevronRight className="w-5 h-5" />
-          </Button>
+            <div className="flex items-center justify-center gap-2">
+              Get Started
+              <ChevronRight className="w-5 h-5" />
+            </div>
+          </StarBorder>
 
-          <Button
-            variant="glass"
-            size="lg"
-            className="w-full"
+          <StarBorder 
+            as="button" 
+            className="w-full" 
+            color="cyan" 
+            speed="5s"
             onClick={() => navigate("/login")}
           >
             I already have an account
-          </Button>
+          </StarBorder>
         </div>
       </div>
 
