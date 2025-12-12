@@ -19,10 +19,10 @@ const Welcome = () => {
 
         {/* Tagline */}
         <p className="text-lg text-muted-foreground mb-2 opacity-0 animate-fade-in delay-200">
-          Your Safety. Your Health.
+          Your Safety
         </p>
         <p className="text-xl font-medium text-foreground mb-12 opacity-0 animate-fade-in delay-300">
-          At Your <span className="gradient-text">Wrist</span>.
+          Your Health at Your <span className="gradient-text">Wrist</span>
         </p>
 
         {/* Bracelet icon */}
