@@ -38,6 +38,7 @@ const Welcome = () => {
         {/* CTA Buttons */}
         <div className="w-full space-y-6 opacity-0 animate-fade-in-up delay-500">
           <div className="space-y-3">
+
             <p className="text-sm text-muted-foreground uppercase tracking-wider">Choose Dashboard</p>
             
             <StarBorder 

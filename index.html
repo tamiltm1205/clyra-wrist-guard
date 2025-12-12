@@ -1,29 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>MEZZOI - Your Safety. Your Health. At Your Wrist.</title>
-    <meta name="description" content="MEZZOI is a smart health and safety companion app that monitors your vitals and keeps you protected. Track skin temperature, hydration levels, and access emergency features instantly." />
-    <meta name="author" content="MEZZOI" />
-    <meta name="theme-color" content="#0a0f1c" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clyra Wrist Guard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta property="og:title" content="MEZZOI - Smart Health & Safety Companion" />
-    <meta property="og:description" content="Your wearable health monitoring and safety companion. Real-time vitals tracking with emergency SOS features." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="public/mezzoi_logo_-removebg-preview.png" />
+        body {
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px 20px;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@MEZZOI" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    <link rel="icon" type="image/png" href="/mezzoi_logo_-removebg-preview.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  </head>
+        .tab-box {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 30px;
+        }
 
-  <body class="dark">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 16px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: white;
+            border-bottom: 3px solid #4ecdc4;
+        }
+
+        .tab:hover {
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tab-box">
+            <div class="tabs">
+                <button class="tab active" onclick="openTab('safety')">Your Safety</button>
+                <button class="tab" onclick="openTab('health')">Your Health at Your Wrist</button>
+                <button class="tab" onclick="openTab('dashboard')">Choose Dashboard</button>
+            </div>
+
+            <div id="safety" class="tab-content active">
+                <h2>Your Safety</h2>
+                <p>Monitor and protect yourself with real-time safety alerts and emergency features.</p>
+            </div>
+
+            <div id="health" class="tab-content">
+                <h2>Your Health at Your Wrist</h2>
+                <p>Track your vital signs, heart rate, and wellness metrics directly from your wrist.</p>
+            </div>
+
+            <div id="dashboard" class="tab-content">
+                <h2>Choose Dashboard</h2>
+                <p>Select and customize your preferred dashboard view for quick access to your data.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            const tabs = document.querySelectorAll('.tab');
+            
+            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
 </html>
