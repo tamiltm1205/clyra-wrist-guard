@@ -8,10 +8,10 @@ interface GlowingLogoProps {
 
 export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingLogoProps) => {
   const sizeClasses = {
-    sm: "text-2xl",
-    md: "text-4xl",
-    lg: "text-6xl",
-    xl: "text-8xl",
+    sm: "h-20 w-auto",
+    md: "h-24 w-auto",
+    lg: "h-36 w-auto",
+    xl: "h-48 w-auto",
   };
 
   return (
@@ -27,16 +27,19 @@ export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingL
         }}
       />
       
-      {/* Main logo text */}
-      <h1 
+      {/* Main logo image */}
+      <img 
+        src="/Minimalist_Logo_with_Teal_and_Coral-removebg-preview.png"
+        alt="Logo"
         className={cn(
-          "font-display font-black tracking-wider relative z-10",
+          "relative z-10 object-contain",
           sizeClasses[size],
           animate && "animate-float"
         )}
-      >
-        <span className="gradient-text neon-text-purple">MEZZOI</span>
-      </h1>
+        style={{
+          filter: "drop-shadow(0 0 10px hsl(270 91% 65% / 0.8)) drop-shadow(0 0 20px hsl(270 91% 65% / 0.5))",
+        }}
+      />
       
       {/* Decorative ring */}
       <div 
