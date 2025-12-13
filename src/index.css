@@ -36,7 +36,7 @@
 
     --radius: 1rem;
 
-    /* Custom MEZZOI colors */
+    /* Custom CLYRA colors */
     --navy-deep: 222 47% 6%;
     --navy-dark: 222 47% 8%;
     --navy-medium: 222 47% 14%;
@@ -250,15 +250,6 @@
     }
     100% {
       filter: hue-rotate(360deg);
-    }
-  }
-
-  @keyframes border-spin {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
     }
   }
 

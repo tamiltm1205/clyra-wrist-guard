@@ -24,7 +24,7 @@ const notifications: Notification[] = [
     id: "2",
     type: "device",
     title: "Bracelet Connected",
-    message: "Your MEZZOI bracelet is now connected and syncing data.",
+    message: "Your CLYRA bracelet is now connected and syncing data.",
     time: "3 hours ago",
     isRead: true,
   },

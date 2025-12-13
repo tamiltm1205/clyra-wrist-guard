@@ -11,9 +11,6 @@ import Health from "./pages/Health";
 import Safety from "./pages/Safety";
 import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
-import AdminDashboard from "./pages/AdminDashboard";
-import SafetyLogin from "./pages/SafetyLogin";
-import SafetyDashboard from "./pages/SafetyDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,8 +23,8 @@ const App = () => (
           speed={0.5}
           squareSize={40}
           direction="diagonal"
-          borderColor="#fff"
-          hoverFillColor="#222"
+          borderColor="rgba(82, 39, 255, 0.2)"
+          hoverFillColor="rgba(82, 39, 255, 0.1)"
         />
       </div>
       <div className="relative z-10">
@@ -42,9 +39,6 @@ const App = () => (
             <Route path="/safety" element={<Safety />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/safety-login" element={<SafetyLogin />} />
-            <Route path="/safety-dashboard" element={<SafetyDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

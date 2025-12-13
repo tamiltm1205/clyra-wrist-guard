@@ -152,7 +152,7 @@ const Settings = () => {
 
         {/* App info */}
         <div className="text-center pt-4 opacity-0 animate-fade-in delay-500">
-          <p className="text-muted-foreground text-sm">MEZZOI v1.0.0</p>
+          <p className="text-muted-foreground text-sm">CLYRA v1.0.0</p>
           <p className="text-muted-foreground/60 text-xs mt-1">
             Your Safety. Your Health. At Your Wrist.
           </p>

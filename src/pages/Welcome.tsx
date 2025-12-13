@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GlowingLogo } from "@/components/GlowingLogo";
-import StarBorder from "@/components/StarBorder";
-import { Watch, ChevronRight, Shield, User } from "lucide-react";
+import { Watch, ChevronRight } from "lucide-react";
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -19,10 +18,10 @@ const Welcome = () => {
 
         {/* Tagline */}
         <p className="text-lg text-muted-foreground mb-2 opacity-0 animate-fade-in delay-200">
-          Your Safety
+          Your Safety. Your Health.
         </p>
         <p className="text-xl font-medium text-foreground mb-12 opacity-0 animate-fade-in delay-300">
-          Your Health at Your <span className="gradient-text">Wrist</span>
+          At Your <span className="gradient-text">Wrist</span>.
         </p>
 
         {/* Bracelet icon */}
@@ -36,39 +35,25 @@ const Welcome = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="w-full space-y-6 opacity-0 animate-fade-in-up delay-500">
-          <div className="space-y-3">
+        <div className="w-full space-y-4 opacity-0 animate-fade-in-up delay-500">
+          <Button
+            variant="glow"
+            size="xl"
+            className="w-full"
+            onClick={() => navigate("/login")}
+          >
+            Get Started
+            <ChevronRight className="w-5 h-5" />
+          </Button>
 
-            <p className="text-sm text-muted-foreground uppercase tracking-wider">Choose Dashboard</p>
-            
-            <StarBorder 
-              as="button" 
-              className="w-full" 
-              color="cyan" 
-              speed="5s"
-              onClick={() => navigate("/login")}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <User className="w-5 h-5" />
-                User Dashboard
-                <ChevronRight className="w-5 h-5" />
-              </div>
-            </StarBorder>
-
-            <StarBorder 
-              as="button" 
-              className="w-full" 
-              color="red" 
-              speed="5s"
-              onClick={() => navigate("/safety-login")}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <Shield className="w-5 h-5" />
-                Safety Center
-                <ChevronRight className="w-5 h-5" />
-              </div>
-            </StarBorder>
-          </div>
+          <Button
+            variant="glass"
+            size="lg"
+            className="w-full"
+            onClick={() => navigate("/login")}
+          >
+            I already have an account
+          </Button>
         </div>
       </div>
 

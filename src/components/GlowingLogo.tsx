@@ -8,29 +8,35 @@ interface GlowingLogoProps {
 
 export const GlowingLogo = ({ size = "lg", className, animate = true }: GlowingLogoProps) => {
   const sizeClasses = {
-    sm: "h-32 w-32",
-    md: "h-40 w-40",
-    lg: "h-56 w-56",
-    xl: "h-72 w-72",
+    sm: "text-2xl",
+    md: "text-4xl",
+    lg: "text-6xl",
+    xl: "text-8xl",
   };
 
   return (
     <div className={cn("relative inline-flex flex-col items-center", className)}>
-
-      
-      {/* Main logo image */}
-      <img 
-        src="/mezzoi_logo_-removebg-preview.png"
-        alt="Mezzoi Logo"
+      {/* Glow effect behind */}
+      <div 
         className={cn(
-          "relative z-10 object-contain rounded-full aspect-square",
+          "absolute inset-0 blur-3xl opacity-60",
+          animate && "animate-glow-pulse"
+        )}
+        style={{
+          background: "linear-gradient(135deg, hsl(270 91% 65% / 0.5) 0%, hsl(174 72% 56% / 0.5) 100%)",
+        }}
+      />
+      
+      {/* Main logo text */}
+      <h1 
+        className={cn(
+          "font-display font-black tracking-wider relative z-10",
           sizeClasses[size],
           animate && "animate-float"
         )}
-        style={{
-          filter: "brightness(0) invert(1) drop-shadow(0 0 10px hsl(270 91% 65% / 0.8)) drop-shadow(0 0 20px hsl(270 91% 65% / 0.5))",
-        }}
-      />
+      >
+        <span className="gradient-text neon-text-purple">CLYRA</span>
+      </h1>
       
       {/* Decorative ring */}
       <div 
